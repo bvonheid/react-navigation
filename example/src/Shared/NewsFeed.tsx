@@ -11,6 +11,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import Video from 'react-native-video';
 
 import { Divider } from './Divider';
 
@@ -75,6 +76,21 @@ export function NewsFeed(props: Props) {
 
   return (
     <ScrollView ref={ref} {...props}>
+      <Card>
+        <Video
+          style={{
+            width: '100%',
+            aspectRatio: 16 / 9,
+          }}
+          controls={true}
+          source={{
+            uri: 'https://api.admiralcloud.com/v5/deliverEmbed/f2ce6815-5227-44ce-964b-bc4138861909/hlsManifest',
+            type: 'm3u8',
+          }}
+          muted={false}
+          paused={true}
+        />
+      </Card>
       <Card>
         <TextInput
           placeholder="What's on your mind?"
